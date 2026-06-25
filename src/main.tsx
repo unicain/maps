@@ -7,15 +7,22 @@ import './index.css';
 import { fetchAndApplyLeadData } from './fetchLeadData';
 
 // Initialize PostHog
+// Se você não quiser configurar variáveis de ambiente no seu provedor de hospedagem (Vercel, Netlify, etc.),
+// você pode colocar a sua chave pública do PostHog diretamente abaixo:
+const POSTHOG_KEY_FALLBACK = ''; 
+
+const posthogKey = import.meta.env.VITE_POSTHOG_KEY || POSTHOG_KEY_FALLBACK;
+const posthogHost = import.meta.env.VITE_POSTHOG_HOST || 'https://us.i.posthog.com';
+
 if (typeof window !== 'undefined') {
-  if (import.meta.env.VITE_POSTHOG_KEY) {
-    posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
-      api_host: import.meta.env.VITE_POSTHOG_HOST || 'https://us.i.posthog.com',
+  if (posthogKey) {
+    posthog.init(posthogKey, {
+      api_host: posthogHost,
       person_profiles: 'identified_only',
       capture_pageview: false, // Disable automatic capture to wait for lead data
     });
   } else {
-    console.warn("PostHog Warning: VITE_POSTHOG_KEY is not defined in environment variables. Page views and clicks will not be tracked.");
+    console.warn("PostHog Warning: VITE_POSTHOG_KEY is not defined. Page views and clicks will not be tracked.");
   }
 }
 
@@ -28,7 +35,7 @@ async function init() {
   }
 
   // Capture the pageview explicitly after lead data is loaded
-  if (typeof window !== 'undefined' && import.meta.env.VITE_POSTHOG_KEY) {
+  if (typeof window !== 'undefined' && posthogKey) {
     if (leadId) {
       // Register lead_id as super property for all subsequent events
       posthog.register({
