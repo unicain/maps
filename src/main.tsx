@@ -9,7 +9,7 @@ import { fetchAndApplyLeadData } from './fetchLeadData';
 // Initialize PostHog
 // Se você não quiser configurar variáveis de ambiente no seu provedor de hospedagem (Vercel, Netlify, etc.),
 // você pode colocar a sua chave pública do PostHog diretamente abaixo:
-const POSTHOG_KEY_FALLBACK = ''; 
+const POSTHOG_KEY_FALLBACK = 'phc_vTyEzLTT5BdDNKaeEWmqCyYtGkWytJwq3Ukdi4gXHgmK'; 
 
 const posthogKey = import.meta.env.VITE_POSTHOG_KEY || POSTHOG_KEY_FALLBACK;
 const posthogHost = import.meta.env.VITE_POSTHOG_HOST || 'https://us.i.posthog.com';
