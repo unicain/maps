@@ -98,22 +98,22 @@ function applyLeadOverrides(row: any) {
 
   // Gallery Images (up to 4)
   if (row.galleryImage1Url) {
-    if (!lpData.gallery.items[0]) lpData.gallery.items[0] = { id: '1', type: 'image', thumbnailUrl: '', postUrl: '' };
+    if (!lpData.gallery.items[0]) lpData.gallery.items[0] = { id: '1', type: 'image', thumbnailUrl: '', postUrl: '', caption: '' };
     lpData.gallery.items[0].thumbnailUrl = formatImageUrl(row.galleryImage1Url) || '';
     if (row.galleryImage1Caption) lpData.gallery.items[0].caption = row.galleryImage1Caption.trim();
   }
   if (row.galleryImage2Url) {
-    if (!lpData.gallery.items[1]) lpData.gallery.items[1] = { id: '2', type: 'image', thumbnailUrl: '', postUrl: '' };
+    if (!lpData.gallery.items[1]) lpData.gallery.items[1] = { id: '2', type: 'image', thumbnailUrl: '', postUrl: '', caption: '' };
     lpData.gallery.items[1].thumbnailUrl = formatImageUrl(row.galleryImage2Url) || '';
     if (row.galleryImage2Caption) lpData.gallery.items[1].caption = row.galleryImage2Caption.trim();
   }
   if (row.galleryImage3Url) {
-    if (!lpData.gallery.items[2]) lpData.gallery.items[2] = { id: '3', type: 'image', thumbnailUrl: '', postUrl: '' };
+    if (!lpData.gallery.items[2]) lpData.gallery.items[2] = { id: '3', type: 'image', thumbnailUrl: '', postUrl: '', caption: '' };
     lpData.gallery.items[2].thumbnailUrl = formatImageUrl(row.galleryImage3Url) || '';
     if (row.galleryImage3Caption) lpData.gallery.items[2].caption = row.galleryImage3Caption.trim();
   }
   if (row.galleryImage4Url) {
-    if (!lpData.gallery.items[3]) lpData.gallery.items[3] = { id: '4', type: 'image', thumbnailUrl: '', postUrl: '' };
+    if (!lpData.gallery.items[3]) lpData.gallery.items[3] = { id: '4', type: 'image', thumbnailUrl: '', postUrl: '', caption: '' };
     lpData.gallery.items[3].thumbnailUrl = formatImageUrl(row.galleryImage4Url) || '';
     if (row.galleryImage4Caption) lpData.gallery.items[3].caption = row.galleryImage4Caption.trim();
   }
@@ -137,22 +137,22 @@ function applyLeadOverrides(row: any) {
 
   // Services (up to 4)
   if (row.service1Title && row.service1Desc) {
-    if (!lpData.services.items[0]) lpData.services.items[0] = { id: '1', title: '', description: '', icon: 'Activity' };
+    if (!lpData.services.items[0]) lpData.services.items[0] = { id: '1', title: '', description: '', iconName: 'Activity' };
     lpData.services.items[0].title = row.service1Title.trim();
     lpData.services.items[0].description = row.service1Desc.trim();
   }
   if (row.service2Title && row.service2Desc) {
-    if (!lpData.services.items[1]) lpData.services.items[1] = { id: '2', title: '', description: '', icon: 'Heart' };
+    if (!lpData.services.items[1]) lpData.services.items[1] = { id: '2', title: '', description: '', iconName: 'Heart' };
     lpData.services.items[1].title = row.service2Title.trim();
     lpData.services.items[1].description = row.service2Desc.trim();
   }
   if (row.service3Title && row.service3Desc) {
-    if (!lpData.services.items[2]) lpData.services.items[2] = { id: '3', title: '', description: '', icon: 'Shield' };
+    if (!lpData.services.items[2]) lpData.services.items[2] = { id: '3', title: '', description: '', iconName: 'Shield' };
     lpData.services.items[2].title = row.service3Title.trim();
     lpData.services.items[2].description = row.service3Desc.trim();
   }
   if (row.service4Title && row.service4Desc) {
-    if (!lpData.services.items[3]) lpData.services.items[3] = { id: '4', title: '', description: '', icon: 'Star' };
+    if (!lpData.services.items[3]) lpData.services.items[3] = { id: '4', title: '', description: '', iconName: 'Star' };
     lpData.services.items[3].title = row.service4Title.trim();
     lpData.services.items[3].description = row.service4Desc.trim();
   }
